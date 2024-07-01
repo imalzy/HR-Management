@@ -1,9 +1,7 @@
 <app-sidebar></app-sidebar>
 <div class="relative md:ml-64 bg-blueGray-100">
   <app-navbar></app-navbar>
-  <!-- Header -->
-
-  <main>
-    <router-outlet />
+  <main [@routeAnimations]="prepareRoute(outletRef)">
+    <router-outlet #outletRef="outlet"></router-outlet>
   </main>
 </div>

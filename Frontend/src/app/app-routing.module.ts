@@ -9,7 +9,21 @@ const routes: Routes = [
       import('./modules/dashboard/dashboard.module').then(
         (m) => m.DashboardModule,
       ),
-    data: { preload: 'dependsOnReturnUrl' },
+    data: {
+      title: 'Dashboard',
+      animation: 'isLeft',
+    },
+  },
+  {
+    path: 'employee',
+    loadChildren: () =>
+      import('./modules/employees/employees.module').then(
+        (m) => m.EmployeesModule,
+      ),
+    data: {
+      title: 'Pegawai',
+      animation: 'isRight',
+    },
   },
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
@@ -19,9 +33,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-// {
-//   path: 'settings',
-//   canActivate: [MarketingInvoicerGuardBlock, AdminInvoicerGuardBlock],
-//   loadChildren: () => import('./settings/settings.module').then((m) => m.SettingsModule),
-//   data: { preload: 'dependsOnReturnUrl' },
-// },

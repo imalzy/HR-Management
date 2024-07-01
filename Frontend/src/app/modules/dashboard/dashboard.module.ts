@@ -3,21 +3,21 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TableModule } from '../../components/table/table.module';
 const routes: Routes = [
   {
-      path: '',
-      component: DashboardComponent,
-  }
-]
+    path: '',
+    component: DashboardComponent,
+  },
+];
 
 @NgModule({
-  declarations: [
-    DashboardComponent
-  ],
+  declarations: [DashboardComponent],
   imports: [
     CommonModule,
     FontAwesomeModule,
-    RouterModule.forChild(routes)
-  ]
+    TableModule,
+    RouterModule.forChild(routes),
+  ],
 })
-export class DashboardModule { }
+export class DashboardModule {}
