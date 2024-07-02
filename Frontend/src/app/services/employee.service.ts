@@ -14,6 +14,7 @@ export class EmployeeService {
     order: string,
     page: number,
     search: string,
+    limit: number,
   ): Observable<IUPAPIResponse<IEmployee[]>> {
     const httpParms = new HttpParams();
     const httpHeader = new HttpHeaders();
@@ -25,7 +26,7 @@ export class EmployeeService {
       .set('sort', sort)
       .set('order', order)
       .set('search', search)
-      .set('limit', 10)
+      .set('limit', limit)
       .set('page', page);
 
     return this.httpClient.get<IUPAPIResponse<IEmployee[]>>(

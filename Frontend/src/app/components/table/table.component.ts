@@ -20,6 +20,7 @@ export class TableComponent {
   @Input({ required: true }) tableHeader: IColumnTable[] = [];
   @Input({ required: true }) tableData: any[] = [];
   @Output() changeSort = new EventEmitter<any>();
+  @Output() clickAddEvent = new EventEmitter<any>();
 
   faSort = faSort;
   faSortDown = faSortDown;

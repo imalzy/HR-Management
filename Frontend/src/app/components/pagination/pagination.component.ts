@@ -1,21 +1,42 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.scss',
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnInit, AfterViewInit {
   @Input() totalItems: number = 0;
-  @Input() itemsPerPage: number = 10;
   @Input() currentPage: number = 1;
   @Output() pageChange = new EventEmitter<number>();
+  @Output() perPageItemChange = new EventEmitter<number>();
 
+  @Input() itemsPerPage: number = 5;
+  itemPerPageControl = new FormControl();
   totalPages: number = 0;
 
   ngOnInit() {
     this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
+  }
+
+  ngAfterViewInit(): void {
+    this.itemPerPageControl.setValue(this.itemsPerPage);
+    this.itemPerPageControl.valueChanges
+      .pipe(distinctUntilChanged())
+      .subscribe((value) => {
+        this.itemsPerPage = value;
+        this.perPageItemChange.emit(this.itemsPerPage);
+      });
   }
 
   get pages(): (number | string)[] {

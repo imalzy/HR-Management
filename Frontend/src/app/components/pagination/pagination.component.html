@@ -1,27 +1,58 @@
-<div class="flex justify-center items-center space-x-2">
-  <button
-    class="px-4 py-2 rounded bg-gray-200 text-gray-800"
-    [disabled]="currentPage === 1"
-    (click)="changePage(currentPage - 1)"
-  >
-    Prev
-  </button>
-  <button
-    *ngFor="let page of pages"
-    class="px-4 py-2 rounded"
-    [ngClass]="{
-      'bg-blue-500 text-white': page === currentPage,
-      'bg-gray-200 text-gray-800': page !== currentPage,
-    }"
-    (click)="changePage(page)"
-  >
-    {{ page }}
-  </button>
-  <button
-    class="px-4 py-2 rounded bg-gray-200 text-gray-800"
-    [disabled]="currentPage === totalPages"
-    (click)="changePage(currentPage + 1)"
-  >
-    Next
-  </button>
+<div class="flex justify-center items-center space-x-2 gap-10">
+  <!-- <label>
+    <span className="sr-only">Items Per Page</span>
+    <select
+      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+      value={state.pageSize}
+      onChange={(e) => {
+        setPageSize(Number(e.target.value));
+      }}
+    >
+      {[5, 10, 20].map((pageSize) => (
+        <option key={pageSize} value={pageSize}>
+          Show {pageSize}
+        </option>
+      ))}
+    </select>
+  </label> -->
+
+  <div class="flex gap-3 items-center">
+    <p style="width: 200px">Page {{ currentPage }} of {{ totalItems }}</p>
+    <select
+      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+      [formControl]="itemPerPageControl"
+    >
+      @for (item of [5, 10, 20]; track $index) {
+        <option [value]="item">Show {{ item }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="flex gap-3">
+    <button
+      class="px-4 py-2 rounded bg-gray-200 text-gray-800"
+      [disabled]="currentPage === 1"
+      (click)="changePage(currentPage - 1)"
+    >
+      Prev
+    </button>
+    <button
+      *ngFor="let page of pages"
+      class="px-4 py-2 rounded"
+      [ngClass]="{
+        'bg-blue-500 text-white': page === currentPage,
+        'bg-gray-200 text-gray-800': page !== currentPage,
+      }"
+      (click)="changePage(page)"
+    >
+      {{ page }}
+    </button>
+    <button
+      class="px-4 py-2 rounded bg-gray-200 text-gray-800"
+      [disabled]="currentPage === totalPages"
+      (click)="changePage(currentPage + 1)"
+    >
+      Next
+    </button>
+  </div>
 </div>

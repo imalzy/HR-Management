@@ -4,6 +4,7 @@ import { EmployeeService } from '../../../services/employee.service';
 import { IColumnTable, IEmployee } from '../../../models/Employee.interface';
 import { GlobalStoreService } from '../../../services/global-store.service';
 import { distinctUntilChanged } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-employee',
@@ -13,7 +14,8 @@ import { distinctUntilChanged } from 'rxjs/operators';
 export class ListEmployeeComponent implements OnInit, AfterViewInit {
   private employeeService = inject(EmployeeService);
   private globalStore = inject(GlobalStoreService);
-  limit = 10;
+  private router = inject(Router);
+  limit = 5;
   page = 1;
   totalItems: number = 0;
 
@@ -64,7 +66,7 @@ export class ListEmployeeComponent implements OnInit, AfterViewInit {
 
   refresh(): void {
     this.employeeService
-      .getEmployees(this.sort, this.order, this.page, this.search)
+      .getEmployees(this.sort, this.order, this.page, this.search, this.limit)
       .subscribe((res) => {
         this.items = res.data as IEmployee[];
         this.totalItems = res.total ?? 0;
@@ -81,5 +83,14 @@ export class ListEmployeeComponent implements OnInit, AfterViewInit {
   changePage($event: any) {
     this.page = $event;
     this.refresh();
+  }
+
+  changePerPageItem($event: any) {
+    this.limit = $event;
+    this.refresh();
+  }
+
+  addEmployee() {
+    this.router.navigateByUrl('/employee/form');
   }
 }

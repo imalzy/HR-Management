@@ -7,11 +7,13 @@
     [tableHeader]="tableHeader"
     [tableData]="items"
     (changeSort)="onSort($event)"
+    (clickAddEvent)="addEmployee()"
   ></app-table>
   <app-pagination
     [totalItems]="totalItems"
-    (pageChange)="changePage($event)"
     [currentPage]="page"
     [itemsPerPage]="limit"
+    (pageChange)="changePage($event)"
+    (perPageItemChange)="changePerPageItem($event)"
   ></app-pagination>
 </div>
