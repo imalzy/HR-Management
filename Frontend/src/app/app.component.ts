@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {
+  ActivatedRoute,
+  ActivationEnd,
+  Router,
+  RouterOutlet,
+} from '@angular/router';
 import { slider } from './animations';
 
 @Component({
@@ -9,6 +14,22 @@ import { slider } from './animations';
   animations: [slider],
 })
 export class AppComponent {
+  title = '';
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {
+    this.router.events.subscribe((event) => {
+      // 2. Start with ActivationEnd, experiment with the other events
+      if (event instanceof ActivationEnd) {
+        // 3. if your data exists assign it for use!
+        if (event.snapshot.data['title']) {
+          this.title = event.snapshot.data['title'];
+        }
+      }
+    });
+  }
+
   prepareRoute(outlet: RouterOutlet) {
     return (
       outlet &&

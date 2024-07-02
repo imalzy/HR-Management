@@ -9,24 +9,30 @@ export class EmployeeService {
   private baseUrl = environment.baseUrl;
   constructor(private httpClient: HttpClient) {}
 
-  getEmployees(): Observable<IUPAPIResponse<IEmployee[]>> {
+  getEmployees(
+    sort: string,
+    order: string,
+    page: number,
+    search: string,
+  ): Observable<IUPAPIResponse<IEmployee[]>> {
     const httpParms = new HttpParams();
     const httpHeader = new HttpHeaders();
-    httpHeader.append('Content-Type', 'application/json');
-    httpHeader.append('accept', 'application/json');
-    httpParms
-      .set('sort', 'id')
-      .set('order', 'asc')
-      .set('search', '')
-      .set('limit', 10)
-      .set('page', 1);
+    const headers = httpHeader
+      .set('Content-Type', 'application/json')
+      .set('Accept', 'application/json');
 
-    console.log(httpHeader);
+    const params = httpParms
+      .set('sort', sort)
+      .set('order', order)
+      .set('search', search)
+      .set('limit', 10)
+      .set('page', page);
+
     return this.httpClient.get<IUPAPIResponse<IEmployee[]>>(
       this.baseUrl + '/employees',
       {
-        headers: httpHeader,
-        params: httpParms,
+        headers,
+        params,
       },
     );
   }

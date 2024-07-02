@@ -17,3 +17,8 @@ export interface IUPAPIResponse<T> {
   page?: number;
   limit?: number;
 }
+
+export interface IColumnTable {
+  columnName: string;
+  columnValue: string;
+}

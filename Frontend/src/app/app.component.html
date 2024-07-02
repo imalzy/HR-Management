@@ -1,6 +1,6 @@
 <app-sidebar></app-sidebar>
 <div class="relative md:ml-64 bg-blueGray-100">
-  <app-navbar></app-navbar>
+  <app-navbar [title]="title"></app-navbar>
   <main [@routeAnimations]="prepareRoute(outletRef)">
     <router-outlet #outletRef="outlet"></router-outlet>
   </main>
