@@ -5,13 +5,15 @@ import {
   Router,
   RouterOutlet,
 } from '@angular/router';
+import { slider } from '../../animations';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrl: './layout.component.scss',
+  animations: [slider],
 })
-export class AppComponent {
+export class LayoutComponent {
   title = '';
   constructor(
     private route: ActivatedRoute,

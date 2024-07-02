@@ -10,12 +10,15 @@ import { UserDropdownComponent } from './components/user-dropdown/user-dropdown.
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LayoutComponent } from './components/layout/layout.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     NavbarComponent,
     UserDropdownComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

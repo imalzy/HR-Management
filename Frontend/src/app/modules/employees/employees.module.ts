@@ -6,6 +6,7 @@ import { TableModule } from '../../components/table/table.module';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeeService } from '../../services/employee.service';
 import { PaginationModule } from '../../components/pagination/pagination.module';
+import { NumberOnlyDirective } from '../../directives/number-only.directive';
 
 const routes: Routes = [
   {
@@ -19,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ListEmployeeComponent, FormEmployeeComponent],
+  declarations: [ListEmployeeComponent, FormEmployeeComponent, NumberOnlyDirective],
   imports: [
     CommonModule,
     TableModule,

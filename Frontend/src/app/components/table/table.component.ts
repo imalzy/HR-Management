@@ -6,7 +6,7 @@ import {
   faSortUp,
   faSortDown,
   faEdit,
-  faEye,
+  faTrash,
   faCheck,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
@@ -26,7 +26,7 @@ export class TableComponent {
   faSortDown = faSortDown;
   faSortUp = faSortUp;
   faEdit = faEdit;
-  faEye = faEye;
+  faTrash = faTrash;
   faCheck = faCheck;
   faTimes = faTimes;
 

@@ -24,7 +24,7 @@
       "firstName": "Pangestu",
       "email": "Pangestu_Mandala@yahoo.com",
       "birthDate": "0006-06-26T05:36:43.830Z",
-      "status": false,
+      "status": "Permanen",
       "group": "Music",
       "description": "Feb 22nd 24",
       "basicSalary": "5307330.23"
@@ -36,7 +36,7 @@
       "firstName": "Utama",
       "email": "Utama_Prasetyo@gmail.co.id",
       "birthDate": "0017-11-07T02:30:10.939Z",
-      "status": true,
+      "status":"Permanen",
       "group": "Toys",
       "description": "Feb 22nd 24",
       "basicSalary": "5976663.66"
@@ -48,7 +48,7 @@
       "firstName": "Laswi",
       "email": "Laswi33@yahoo.co.id",
       "birthDate": "0017-01-15T13:37:09.105Z",
-      "status": false,
+      "status": "Permanen",
       "group": "Garden",
       "description": "Feb 22nd 24",
       "basicSalary": "13244956.95"
@@ -60,7 +60,7 @@
       "firstName": "Rina",
       "email": "Rina.Puspita@yahoo.co.id",
       "birthDate": "0008-12-07T13:10:09.268Z",
-      "status": true,
+      "status": "Permanen",
       "group": "Outdoors",
       "description": "Feb 22nd 24",
       "basicSalary": "6390956.01"
@@ -72,7 +72,7 @@
       "firstName": "Ophelia",
       "email": "Ophelia98@gmail.co.id",
       "birthDate": "0017-05-09T05:49:44.940Z",
-      "status": false,
+      "status": "Permanen",
       "group": "Music",
       "description": "Feb 22nd 24",
       "basicSalary": "6026151.11"
@@ -84,7 +84,7 @@
       "firstName": "Jumadi",
       "email": "Jumadi.Febian@gmail.co.id",
       "birthDate": "0006-06-10T16:47:36.583Z",
-      "status": true,
+      "status": "Permanen",
       "group": "Sports",
       "description": "Feb 22nd 24",
       "basicSalary": "18373013.86"
@@ -96,7 +96,7 @@
       "firstName": "Najwa",
       "email": "Najwa.Ningrum43@yahoo.co.id",
       "birthDate": "0000-04-16T08:32:16.597Z",
-      "status": true,
+      "status": "Kontrak",
       "group": "Electronics",
       "description": "Feb 22nd 24",
       "basicSalary": "13666731.66"
@@ -108,7 +108,7 @@
       "firstName": "Syahrini",
       "email": "Syahrini_Rachmawati@gmail.com",
       "birthDate": "0025-01-19T13:28:33.631Z",
-      "status": true,
+      "status": "Kontrak",
       "group": "Kids",
       "description": "Feb 22nd 24",
       "basicSalary": "18492210.65"
@@ -120,7 +120,7 @@
       "firstName": "Jamalia",
       "email": "Jamalia_Fernanda96@yahoo.co.id",
       "birthDate": "0009-09-21T17:53:23.688Z",
-      "status": false,
+      "status": "Kontrak",
       "group": "Garden",
       "description": "Feb 22nd 24",
       "basicSalary": "11793637.20"
@@ -132,7 +132,7 @@
       "firstName": "Laila",
       "email": "Laila_Handayani@gmail.com",
       "birthDate": "0005-06-26T19:48:22.538Z",
-      "status": true,
+      "status": "Kontrak",
       "group": "Garden",
       "description": "Feb 22nd 24",
       "basicSalary": "23409811.34"
@@ -144,7 +144,7 @@
       "firstName": "Qori",
       "email": "Qori49@yahoo.com",
       "birthDate": "0019-07-01T23:11:31.402Z",
-      "status": false,
+      "status": "Kontrak",
       "group": "Tools",
       "description": "Feb 22nd 24",
       "basicSalary": "24032478.08"
@@ -156,7 +156,7 @@
       "firstName": "Julia",
       "email": "Julia.Andini@gmail.co.id",
       "birthDate": "0014-12-03T00:12:24.313Z",
-      "status": true,
+      "status": "Kontrak",
       "group": "Games",
       "description": "Feb 22nd 24",
       "basicSalary": "8016752.05"
@@ -168,7 +168,7 @@
       "firstName": "Margana",
       "email": "Margana.Rayhan83@yahoo.co.id",
       "birthDate": "0022-02-14T01:04:17.899Z",
-      "status": false,
+      "status": "Kontrak",
       "group": "Tools",
       "description": "Feb 22nd 24",
       "basicSalary": "5975016.29"
@@ -180,7 +180,7 @@
       "firstName": "Hari",
       "email": "Hari_Kuswoyo70@gmail.com",
       "birthDate": "0012-12-08T22:36:26.987Z",
-      "status": false,
+      "status": "Kontrak",
       "group": "Toys",
       "description": "Feb 22nd 24",
       "basicSalary": "16486691.11"
@@ -192,7 +192,7 @@
       "firstName": "Titi",
       "email": "Titi27@yahoo.com",
       "birthDate": "0013-04-28T17:02:37.306Z",
-      "status": true,
+      "status":"Kontrak",
       "group": "Electronics",
       "description": "Feb 22nd 24",
       "basicSalary": "11316071.00"
@@ -204,7 +204,7 @@
       "firstName": "Umay",
       "email": "Umay_Setiawan@gmail.com",
       "birthDate": "0014-04-17T17:09:29.540Z",
-      "status": true,
+      "status": "Kontrak",
       "group": "Movies",
       "description": "Feb 22nd 24",
       "basicSalary": "24361264.11"
@@ -216,7 +216,7 @@
       "firstName": "Taufan",
       "email": "Taufan_Rajata@gmail.com",
       "birthDate": "0003-10-15T10:37:49.029Z",
-      "status": false,
+      "status": "Kontrak",
       "group": "Tools",
       "description": "Feb 22nd 24",
       "basicSalary": "23330402.70"
@@ -228,7 +228,7 @@
       "firstName": "Virman",
       "email": "Virman_Sihombing24@yahoo.co.id",
       "birthDate": "0025-01-04T19:55:37.609Z",
-      "status": true,
+      "status": "Kontrak",
       "group": "Outdoors",
       "description": "Feb 22nd 24",
       "basicSalary": "18039236.64"
@@ -240,7 +240,7 @@
       "firstName": "Yessi",
       "email": "Yessi.Yuliarti@yahoo.co.id",
       "birthDate": "0000-06-30T12:31:26.026Z",
-      "status": true,
+      "status": "Kontrak",
       "group": "Games",
       "description": "Feb 22nd 24",
       "basicSalary": "6173695.14"
@@ -252,7 +252,7 @@
       "firstName": "Gilda",
       "email": "Gilda.Pertiwi54@gmail.com",
       "birthDate": "0010-05-04T04:45:17.862Z",
-      "status": true,
+      "status":"Kontrak",
       "group": "Kids",
       "description": "Feb 22nd 24",
       "basicSalary": "12832721.49"
@@ -264,7 +264,7 @@
       "email": "qazwsx@gmail.com",
       "birthDate": "2024-02-22T17:00:00.000Z",
       "basicSalary": "12000000",
-      "status": "true",
+      "status": "Kontrak",
       "group": "Sports",
       "description": "",
       "id": 21

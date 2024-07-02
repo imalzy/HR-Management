@@ -76,22 +76,16 @@ server.get("/employees", (req: Request, res: Response) => {
 server.get("/employees/:id", (req: Request, res: Response) => {
   const updatedEmployee = req.body;
   const id = parseInt(req.params.id, 10);
-  const employees = router.db.get('employees');
+  const employees = router.db.get("employees");
   const employee = employees.find({ id }).assign(updatedEmployee).write();
   if (employee) {
     res.json(employee);
   } else {
-    res.status(404).json({ message: 'Employee not found' });
+    res.status(404).json({ message: "Employee not found" });
   }
 });
 
 server.post("/employees", (req: Request, res: Response) => {
-  // const items = [...readEmployees()];
-
-  // res.send({
-  //   data: [...items, req.body],
-  // });
-
   const newEmployee = req.body;
   const employees = router.db.get("employees");
   newEmployee.id = employees.size().value() + 1;
@@ -99,29 +93,28 @@ server.post("/employees", (req: Request, res: Response) => {
   res.status(201).json(newEmployee);
 });
 
-server.put('/employees/:id', (req: Request, res: Response) => {
+server.put("/employees/:id", (req: Request, res: Response) => {
   const updatedEmployee = req.body;
   const id = parseInt(req.params.id, 10);
-  const employees = router.db.get('employees');
+  const employees = router.db.get("employees");
   const employee = employees.find({ id }).assign(updatedEmployee).write();
   if (employee) {
     res.json(employee);
   } else {
-    res.status(404).json({ message: 'Employee not found' });
+    res.status(404).json({ message: "Employee not found" });
   }
 });
 
-server.delete('/employees/:id', (req: Request, res: Response) => {
+server.delete("/employees/:id", (req: Request, res: Response) => {
   const id = parseInt(req.params.id, 10);
-  const employees = router.db.get('employees');
+  const employees = router.db.get("employees");
   const employee = employees.remove({ id }).write();
   if (employee.length > 0) {
     res.status(204).end();
   } else {
-    res.status(404).json({ message: 'Employee not found' });
+    res.status(404).json({ message: "Employee not found" });
   }
 });
-
 
 server.use("/users", (req: any, res: any, next: any) => {
   if (isAuthorized(req) || req.query.bypassAuth === "true") {

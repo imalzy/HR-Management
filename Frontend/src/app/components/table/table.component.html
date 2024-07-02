@@ -80,11 +80,11 @@
 
 <ng-template #otherElse let-item="item" let-column="column">
   <ng-container *ngIf="column.columnValue === 'status'">
-    @if (item[column.columnValue] === true) {
-      Aktif
+    @if (item[column.columnValue] === 'Permanen') {
+      Permanen
       <fa-icon [icon]="faCheck" class="text-green-500"></fa-icon>
     } @else {
-      Tidak Aktif
+      Kontrak
       <fa-icon [icon]="faTimes" class="text-red-500"></fa-icon>
     }
   </ng-container>
@@ -94,7 +94,7 @@
       type="button"
       (click)="edit(item)"
     >
-      <fa-icon [icon]="faEdit" class="text-indigo-500"></fa-icon>
+      <fa-icon [icon]="faEdit" class="text-yellow"></fa-icon>
     </button>
 
     <button
@@ -102,7 +102,7 @@
       type="button"
       (click)="preview(item)"
     >
-      <fa-icon [icon]="faEye" class="text-red-500"></fa-icon>
+      <fa-icon [icon]="faTrash" class="text-red-600"></fa-icon>
     </button>
   </ng-container>
 </ng-template>
