@@ -33,8 +33,8 @@ export class TableComponent {
   order: 'asc' | 'desc' = 'asc';
   fieldName: string = '';
 
-  sort(column: string, order: 'asc' | 'desc') {
-    console.log(column, order);
+  sort(column: string) {
+    console.log(column, this.order);
 
     this.fieldName = column;
     if (this.order === 'asc') {
@@ -42,8 +42,10 @@ export class TableComponent {
     } else if (this.order === 'desc') {
       this.order = 'asc';
     }
-
-    this.changeSort.emit({ column, order });
+    if (column == '') {
+      return;
+    }
+    this.changeSort.emit({ column, order: this.order });
   }
 
   preview(item: any) {

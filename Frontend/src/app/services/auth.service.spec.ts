@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { AuthService } from './auth.service';
 import { Ilogin } from '../models/Auth.interface';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -10,11 +13,11 @@ describe('AuthService', () => {
   let authService: AuthService;
   let httpTestingController: HttpTestingController;
   let router: Router;
-  
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
-      providers: [AuthService]
+      providers: [AuthService],
     });
     authService = TestBed.inject(AuthService);
     spyOn(localStorage, 'setItem');
@@ -27,11 +30,18 @@ describe('AuthService', () => {
   });
 
   it('should return an Observable<Ilogin> on successful login', () => {
-    const mockResponse: Ilogin = { id: 1, username: 'testUser', role: 'user', token: 'mockToken' };
+    const mockResponse: Ilogin = {
+      id: 1,
+      username: 'testUser',
+      role: 'user',
+      token: 'mockToken',
+    };
 
-    authService.login('testUser', 'testPassword').subscribe((response: Ilogin) => {
-      expect(response).toEqual(mockResponse);
-    });
+    authService
+      .login('testUser', 'testPassword')
+      .subscribe((response: Ilogin) => {
+        expect(response).toEqual(mockResponse);
+      });
 
     const req = httpTestingController.expectOne(`${authService.apiUrl}/login`);
     expect(req.request.method).toBe('POST');
@@ -45,7 +55,7 @@ describe('AuthService', () => {
       () => {},
       (error: any) => {
         expect(error).toBe(errorMessage);
-      }
+      },
     );
 
     const req = httpTestingController.expectOne(`${authService.apiUrl}/login`);

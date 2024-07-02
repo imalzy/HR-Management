@@ -18,7 +18,7 @@ import { distinctUntilChanged } from 'rxjs';
 export class PaginationComponent implements OnInit, AfterViewInit {
   @Input() totalItems: number = 0;
   @Input() currentPage: number = 1;
-  @Input() totalPagination: number= 1;
+  @Input() totalPagination: number = 1;
   @Output() pageChange = new EventEmitter<number>();
   @Output() perPageItemChange = new EventEmitter<number>();
 
@@ -76,7 +76,7 @@ export class PaginationComponent implements OnInit, AfterViewInit {
   }
 
   changePage(page: any) {
-    if(page === this.totalPagination + 1 || page == 0){
+    if (page === this.totalPagination + 1 || page == 0) {
       return;
     }
 

@@ -30,19 +30,21 @@
               <th
                 scope="col"
                 class="px-6 bg-blueGray-50 cursor-pointer text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-                (click)="sort(item.columnValue, 'asc')"
+                (click)="sort(item.columnValue)"
               >
                 {{ item.columnName }}
 
-                @if (item.columnValue !== item.columnValue) {
-                  <fa-icon [icon]="faSort"></fa-icon>
-                }
+                @if (item.columnValue !== "") {
+                  @if (item.columnValue !== item.columnValue) {
+                    <fa-icon [icon]="faSort"></fa-icon>
+                  }
 
-                @if (fieldName === item.columnValue) {
-                  @if (order === "asc") {
-                    <fa-icon [icon]="faSortUp"></fa-icon>
-                  } @else {
-                    <fa-icon [icon]="faSortDown"></fa-icon>
+                  @if (fieldName === item.columnValue) {
+                    @if (order === "asc") {
+                      <fa-icon [icon]="faSortUp"></fa-icon>
+                    } @else {
+                      <fa-icon [icon]="faSortDown"></fa-icon>
+                    }
                   }
                 }
               </th>

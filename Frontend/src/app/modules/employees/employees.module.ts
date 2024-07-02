@@ -10,7 +10,7 @@ import { PaginationModule } from '../../components/pagination/pagination.module'
 import { NumberOnlyDirective } from '../../directives/number-only.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormErrorModule } from '../../components/form-error/form-error.module';
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule } from 'ngx-spinner';
 const routes: Routes = [
   {
     path: 'list',

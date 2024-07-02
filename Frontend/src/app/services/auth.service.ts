@@ -6,11 +6,14 @@ import { Ilogin } from '../models/Auth.interface';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   apiUrl = environment.baseUrl;
-  constructor(private httpClient: HttpClient, private router: Router) {}
+  constructor(
+    private httpClient: HttpClient,
+    private router: Router,
+  ) {}
 
   login(username: string, password: string): Observable<Ilogin> {
     return this.httpClient.post<Ilogin>(`${this.apiUrl}/login`, {
@@ -38,6 +41,6 @@ export class AuthService {
   }
 
   goLogin() {
-    this.router.navigate(['auth/login'])
+    this.router.navigate(['auth/login']);
   }
 }
