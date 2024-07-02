@@ -64,11 +64,12 @@ server.get("/employees", (req: Request, res: Response) => {
 
   const start = (page - 1) * limit;
   const end = start + limit;
-
+  console.log('###end', end)
   res.json({
     data: employees.slice(start, end),
     total: employees.length,
     page,
+    totalPages: Math.ceil(employees.length / limit),
     limit,
   });
 });

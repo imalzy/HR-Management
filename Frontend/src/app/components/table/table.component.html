@@ -57,7 +57,9 @@
                   class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                 >
                   @if (
-                    column.columnValue !== "status" && column.columnValue !== ""
+                    column.columnValue !== "status" &&
+                    column.columnValue !== "" &&
+                    column.columnValue !== "basicSalary"
                   ) {
                     {{ item[column.columnValue] }}
                   } @else {
@@ -80,7 +82,7 @@
 
 <ng-template #otherElse let-item="item" let-column="column">
   <ng-container *ngIf="column.columnValue === 'status'">
-    @if (item[column.columnValue] === 'Permanen') {
+    @if (item[column.columnValue] === "Permanen") {
       Permanen
       <fa-icon [icon]="faCheck" class="text-green-500"></fa-icon>
     } @else {
@@ -88,6 +90,11 @@
       <fa-icon [icon]="faTimes" class="text-red-500"></fa-icon>
     }
   </ng-container>
+
+  <ng-container *ngIf="column.columnValue === 'basicSalary'">
+    {{ item[column.columnValue] | currency: "Rp" : "symbol" : "3.0" }}
+  </ng-container>
+
   <ng-container *ngIf="column.columnValue === ''">
     <button
       class="cursor-pointer text-black opacity-50 px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"

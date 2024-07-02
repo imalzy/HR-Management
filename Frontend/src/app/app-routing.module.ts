@@ -11,7 +11,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
     data: {
-      title: 'Authentication'
+      title: 'Authentication',
     },
   },
   {
@@ -24,10 +24,6 @@ const routes: Routes = [
           import('./modules/dashboard/dashboard.module').then(
             (m) => m.DashboardModule,
           ),
-        data: {
-          title: 'Dashboard',
-          animation: 'isLeft',
-        },
       },
       {
         path: 'employee',
@@ -35,10 +31,6 @@ const routes: Routes = [
           import('./modules/employees/employees.module').then(
             (m) => m.EmployeesModule,
           ),
-        data: {
-          title: 'Pegawai',
-          animation: 'isRight',
-        },
       },
     ],
   },

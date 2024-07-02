@@ -13,7 +13,7 @@ import {
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
-export class DashboardComponent {
+export class  DashboardComponent {
   faChartPie = faChartPie;
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;

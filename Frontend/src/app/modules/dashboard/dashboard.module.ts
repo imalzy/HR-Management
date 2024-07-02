@@ -8,6 +8,10 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
+    data: {
+      title: 'Dashboard',
+      animation: 'isLeft',
+    },
   },
 ];
 

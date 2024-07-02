@@ -36,7 +36,7 @@
       "firstName": "Utama",
       "email": "Utama_Prasetyo@gmail.co.id",
       "birthDate": "0017-11-07T02:30:10.939Z",
-      "status":"Permanen",
+      "status": "Permanen",
       "group": "Toys",
       "description": "Feb 22nd 24",
       "basicSalary": "5976663.66"
@@ -192,7 +192,7 @@
       "firstName": "Titi",
       "email": "Titi27@yahoo.com",
       "birthDate": "0013-04-28T17:02:37.306Z",
-      "status":"Kontrak",
+      "status": "Kontrak",
       "group": "Electronics",
       "description": "Feb 22nd 24",
       "basicSalary": "11316071.00"
@@ -252,7 +252,7 @@
       "firstName": "Gilda",
       "email": "Gilda.Pertiwi54@gmail.com",
       "birthDate": "0010-05-04T04:45:17.862Z",
-      "status":"Kontrak",
+      "status": "Kontrak",
       "group": "Kids",
       "description": "Feb 22nd 24",
       "basicSalary": "12832721.49"
@@ -268,6 +268,54 @@
       "group": "Sports",
       "description": "",
       "id": 21
+    },
+    {
+      "firstName": "Imal",
+      "lastName": "Zaya",
+      "username": "imalzy",
+      "email": "imalzy@yopmail.com",
+      "birthDate": "1995-01-01",
+      "basicSalary": "20000000",
+      "status": "kontrak",
+      "group": "Toys",
+      "description": "Testing1231231",
+      "id": 22
+    },
+    {
+      "firstName": "Mazaya2",
+      "lastName": "Harahap2",
+      "username": "mazaya2",
+      "email": "mazaya.harahap2@mail.com",
+      "birthDate": "2001-09-09",
+      "basicSalary": "100000000",
+      "status": "permanen",
+      "group": "Music",
+      "description": "Testing123",
+      "id": 23
+    },
+    {
+      "firstName": "Mazaya",
+      "lastName": "Harahap",
+      "username": "mazaya",
+      "email": "mazaya.harahap@mail.com",
+      "birthDate": "2001-09-09",
+      "basicSalary": "100000000",
+      "status": "permanen",
+      "group": "Music",
+      "description": "Testing123",
+      "id": 24
+    },
+    {
+      "firstName": "Yanti",
+      "lastName": "Harahap",
+      "username": "yandiHarahap",
+      "email": "yanti.harahap@mail.com",
+      "birthDate": "1992-01-01",
+      "basicSalary": "100000000",
+      "status": "permanen",
+      "group": "Tools",
+      "description": "Testing123",
+      "id": 25
     }
   ]
 }

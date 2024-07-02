@@ -50,6 +50,7 @@ export class ListEmployeeComponent implements OnInit, AfterViewInit {
   sort: string = 'firstName';
   order: 'asc' | 'desc' = 'asc';
   search: string = '';
+  totalPage: number = 0;
 
   ngOnInit(): void {
     this.refresh();
@@ -71,6 +72,7 @@ export class ListEmployeeComponent implements OnInit, AfterViewInit {
         this.items = res.data as IEmployee[];
         this.totalItems = res.total ?? 0;
         this.page = res.page ?? 1;
+        this.totalPage = res.totalPages ?? 1;
       });
   }
 

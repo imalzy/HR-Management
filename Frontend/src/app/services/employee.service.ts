@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -36,5 +37,9 @@ export class EmployeeService {
         params,
       },
     );
+  }
+
+  addEmployee(employee: IEmployee): Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl + '/employees', employee);
   }
 }

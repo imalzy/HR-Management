@@ -6,12 +6,13 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { slider } from '../../animations';
+import { trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
-  animations: [slider],
+  animations: [slider, trigger('routeAnimation', [])],
 })
 export class LayoutComponent {
   title = '';
