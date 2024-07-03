@@ -26,19 +26,26 @@
 <ng-template #customContent>
   <div class="flex justify-between">
     <h3 class="text-lg leading-6 font-medium text-gray-900">
-      {{ employee.id }} | {{ employee.firstName }} {{ employee.lastName }} - Group: {{
-        employee.group
-      }}
+      {{ employee.id }} | {{ employee.firstName }} {{ employee.lastName }} -
+      Group: {{ employee.group }}
     </h3>
     <div>
-      @if (employee && employee.status && employee.status.toString().toLowerCase() === "kontrak") {
+      @if (
+        employee &&
+        employee.status &&
+        employee.status.toString().toLowerCase() === "kontrak"
+      ) {
         <span
           class="bg-red-100 text-red-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300 text-xs"
         >
           {{ employee.status }}</span
         >
       }
-      @if (employee && employee.status && employee.status.toString().toLowerCase() === "permanen") {
+      @if (
+        employee &&
+        employee.status &&
+        employee.status.toString().toLowerCase() === "permanen"
+      ) {
         <span
           class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 text-xs"
         >
@@ -47,13 +54,14 @@
       }
     </div>
   </div>
-  <p class="text-xs text-gray-400 text-left">{{ employee.email }} - {{ employee.birthDate | date: "dd MMMM yyyy" }}</p>
+  <p class="text-xs text-gray-400 text-left">
+    {{ employee.email }} - {{ employee.birthDate | date: "dd MMMM yyyy" }}
+  </p>
   <div class="mt-2">
+    <p class="text-sm text-gray-500">Bio: {{ employee.description }}</p>
     <p class="text-sm text-gray-500">
-      Bio: {{ employee.description }}
-    </p>
-    <p class="text-sm text-gray-500">
-      Basic Salary: {{ employee.basicSalary | currency: "Rp" : "symbol" : "3.0" }}
+      Basic Salary:
+      {{ employee.basicSalary | currency: "Rp" : "symbol" : "3.0" }}
     </p>
   </div>
 </ng-template>

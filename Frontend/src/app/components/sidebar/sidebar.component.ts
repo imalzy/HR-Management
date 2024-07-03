@@ -12,7 +12,7 @@ export class SidebarComponent {
   faBars = faBars;
   faTimes = faTimes;
   router = inject(Router);
-  authService = inject(AuthService)
+  authService = inject(AuthService);
 
   toggleCollapseShow(classes: string) {
     this.collapseShow = classes;

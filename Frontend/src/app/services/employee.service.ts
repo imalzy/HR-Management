@@ -39,20 +39,15 @@ export class EmployeeService {
     );
   }
 
-  getEmployeesById(
-    id: number | string,
-  ): Observable<IEmployee> {
+  getEmployeesById(id: number | string): Observable<IEmployee> {
     const httpHeader = new HttpHeaders();
     const headers = httpHeader
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json');
 
-    return this.httpClient.get<IEmployee>(
-      `${this.baseUrl}/employees/${id}`,
-      {
-        headers,
-      },
-    );
+    return this.httpClient.get<IEmployee>(`${this.baseUrl}/employees/${id}`, {
+      headers,
+    });
   }
 
   addEmployee(employee: IEmployee): Observable<IEmployee> {
@@ -62,17 +57,15 @@ export class EmployeeService {
     );
   }
 
-  updateEmployee(
-    id: number | string,
-    data: IEmployee, 
-  ): Observable<IEmployee> {
+  updateEmployee(id: number | string, data: IEmployee): Observable<IEmployee> {
     const httpHeader = new HttpHeaders();
     const headers = httpHeader
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json');
 
     return this.httpClient.put<IEmployee>(
-      `${this.baseUrl}/employees/${id}`, data,
+      `${this.baseUrl}/employees/${id}`,
+      data,
       {
         headers,
       },

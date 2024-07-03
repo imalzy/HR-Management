@@ -10,7 +10,7 @@ export class UserDropdownComponent {
   isOpen = false;
   authService = inject(AuthService);
   router = inject(Router);
-  
+
   toggleDropdown() {
     this.isOpen = !this.isOpen;
   }

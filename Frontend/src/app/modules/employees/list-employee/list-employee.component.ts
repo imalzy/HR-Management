@@ -128,15 +128,17 @@ export class ListEmployeeComponent implements OnInit, AfterViewInit {
           confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
           if (result.isConfirmed) {
-            this.employeeService.deleteEmployee(emitter.data?.id).subscribe(() => {
-              Swal.fire({
-                title: 'Deleted!',
-                text: 'Your file has been deleted.',
-                icon: 'success',
-              }).then(() => {
-                this.refresh();
+            this.employeeService
+              .deleteEmployee(emitter.data?.id)
+              .subscribe(() => {
+                Swal.fire({
+                  title: 'Deleted!',
+                  text: 'Your file has been deleted.',
+                  icon: 'success',
+                }).then(() => {
+                  this.refresh();
+                });
               });
-            });
           }
         });
 
