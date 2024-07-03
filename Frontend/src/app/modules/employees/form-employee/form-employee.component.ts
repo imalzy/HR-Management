@@ -6,6 +6,7 @@ import { IEmployee } from '../../../models/Employee.interface';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-employee',
@@ -162,9 +163,14 @@ export class FormEmployeeComponent implements OnInit, AfterViewInit {
         (res) => {
           this.spinner.hide();
           if (res) {
-            setTimeout(() => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Your work has been saved',
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(() => {
               this.router.navigateByUrl('/employee/list');
-            }, 200);
+            });
           }
         },
         () => {
@@ -178,9 +184,14 @@ export class FormEmployeeComponent implements OnInit, AfterViewInit {
         (res) => {
           this.spinner.hide();
           if (res) {
-            setTimeout(() => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Your work has been saved',
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(() => {
               this.router.navigateByUrl('/employee/list');
-            }, 200);
+            });
           }
         },
         () => {
