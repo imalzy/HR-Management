@@ -60,6 +60,7 @@
               @for (column of tableHeader; track $index) {
                 <td
                   class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                  *ngIf="column.columnValue !== ''"
                 >
                   @if (
                     column.columnValue !== "status" &&
@@ -75,6 +76,27 @@
                       "
                     ></ng-container>
                   }
+                </td>
+                <td
+                  class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                  *ngIf="column.columnValue === ''"
+                  (click)="$event.stopPropagation()"
+                >
+                  <button
+                    class="cursor-pointer text-black opacity-50 px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
+                    type="button"
+                    (click)="onClickEvent(item, 'edit')"
+                  >
+                    <fa-icon [icon]="faEdit" class="text-yellow"></fa-icon>
+                  </button>
+
+                  <button
+                    class="cursor-pointer text-black opacity-50 px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
+                    type="button"
+                    (click)="onClickEvent(item, 'delete')"
+                  >
+                    <fa-icon [icon]="faTrash" class="text-red-600"></fa-icon>
+                  </button>
                 </td>
               }
             </tr>
@@ -98,23 +120,5 @@
 
   <ng-container *ngIf="column.columnValue === 'basicSalary'">
     {{ item[column.columnValue] | currency: "Rp" : "symbol" : "3.0" }}
-  </ng-container>
-
-  <ng-container *ngIf="column.columnValue === ''">
-    <button
-      class="cursor-pointer text-black opacity-50 px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-      type="button"
-      (click)="onClickEvent(item, 'edit')"
-    >
-      <fa-icon [icon]="faEdit" class="text-yellow"></fa-icon>
-    </button>
-
-    <button
-      class="cursor-pointer text-black opacity-50 px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-      type="button"
-      (click)="onClickEvent(item, 'delete')"
-    >
-      <fa-icon [icon]="faTrash" class="text-red-600"></fa-icon>
-    </button>
   </ng-container>
 </ng-template>

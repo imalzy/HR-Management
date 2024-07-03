@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +13,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponent } from './components/layout/layout.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+
+import { registerLocaleData } from '@angular/common';
+import localeId from '@angular/common/locales/id';
+registerLocaleData(localeId, 'id');
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +37,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NgxSpinnerModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'id-ID' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

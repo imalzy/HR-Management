@@ -34,8 +34,6 @@ export class TableComponent {
   fieldName: string = '';
 
   sort(column: string) {
-    console.log(column, this.order);
-
     this.fieldName = column;
     if (this.order === 'asc') {
       this.order = 'desc';

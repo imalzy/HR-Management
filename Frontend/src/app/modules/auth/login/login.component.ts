@@ -32,7 +32,6 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    console.log(this.form);
     if (!this.form.valid) {
       this.form.markAllAsTouched();
     }

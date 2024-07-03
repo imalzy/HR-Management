@@ -101,7 +101,6 @@ export class ListEmployeeComponent implements OnInit, AfterViewInit {
         action: emitter.eventName,
       },
     };
-
     switch (emitter.eventName) {
       case 'add':
         this.router.navigateByUrl('/employee/form');

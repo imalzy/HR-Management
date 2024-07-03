@@ -49,16 +49,12 @@ export class FormEmployeeComponent implements OnInit, AfterViewInit {
   });
   action: string = 'add';
   employeeId: string | number = 0;
+  maxDate: string = '';
 
   constructor(private spinner: NgxSpinnerService) {
     this.activatedRoute.queryParamMap
       .pipe(takeUntilDestroyed())
       .subscribe((params: Params) => {
-        console.log(params);
-        console.log(
-          'getCurrentNavigation ',
-          this.router.getCurrentNavigation(),
-        );
         const currentNav = this.router?.getCurrentNavigation();
         if (currentNav && currentNav.extras?.state) {
           this.action = currentNav?.extras?.state['action'];
@@ -73,6 +69,13 @@ export class FormEmployeeComponent implements OnInit, AfterViewInit {
     if (this.action === 'edit') {
       this.getEmployeeById(this.employeeId);
     }
+
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = ('0' + (today.getMonth() + 1)).slice(-2); // Months are zero-based
+    const day = ('0' + today.getDate()).slice(-2);
+
+    this.maxDate = `${year}-${month}-${day}`;
   }
 
   ngAfterViewInit(): void {

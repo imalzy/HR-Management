@@ -18,7 +18,6 @@ export class NavbarComponent {
     this.searchControl.valueChanges
       .pipe(debounceTime(500), takeUntilDestroyed())
       .subscribe((newValue) => {
-        console.log(newValue);
         this.globalStoreService.setGlobalSearch(newValue);
       });
   }
