@@ -14,3 +14,4 @@ Run `npm run server` for running server. keep it running in cmd
 cd `Frontend`
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+![Example Image](Screenshot/1.png)
