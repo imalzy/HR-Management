@@ -15,3 +15,9 @@ cd `Frontend`
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ![Example Image](Screenshot/1.png)
+![Example Image](Screenshot/2.png)
+![Example Image](Screenshot/3.png)
+![Example Image](Screenshot/4.png)
+![Example Image](Screenshot/5.png)
+![Example Image](Screenshot/6.png)
+
