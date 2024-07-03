@@ -1,16 +1,18 @@
-import { TestBed } from '@angular/core/testing';
-
 import { GlobalStoreService } from './global-store.service';
 
 describe('GlobalStoreService', () => {
   let service: GlobalStoreService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(GlobalStoreService);
+    service = new GlobalStoreService();
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('should update searchGlobal$ observable with the provided search string', () => {
+    const testSearchString = 'test search';
+    service.setGlobalSearch(testSearchString);
+
+    service.searchGlobal$.subscribe((searchValue) => {
+      expect(searchValue).toBe(testSearchString);
+    });
   });
 });

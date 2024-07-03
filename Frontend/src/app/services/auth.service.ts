@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   apiUrl = environment.baseUrl;
+  KEY = 'token';
   constructor(
     private httpClient: HttpClient,
     private router: Router,
@@ -23,13 +24,17 @@ export class AuthService {
   }
 
   storeToken(token: string) {
-    localStorage.setItem('token', token);
+    localStorage.setItem(this.KEY, token);
   }
 
   getToken(): string {
-    const token = localStorage.getItem('token') || '';
+    const token = localStorage.getItem(this.KEY) || '';
 
     return token;
+  }
+
+  removeToken() {
+    localStorage.removeItem(this.KEY);
   }
 
   hasAccess(): boolean {

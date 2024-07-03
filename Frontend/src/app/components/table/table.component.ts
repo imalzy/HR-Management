@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IColumnTable } from '../../models/Employee.interface';
+import { IColumnTable, IEmployee } from '../../models/Employee.interface';
 import {
   faSort,
   faSortUp,
@@ -48,10 +48,10 @@ export class TableComponent {
     this.changeSort.emit({ column, order: this.order });
   }
 
-  preview(item: any) {
-    console.log(item);
-  }
-  edit(item: any) {
-    console.log(item);
+  onClickEvent(item: IEmployee | null, event: string) {
+    this.clickAddEvent.emit({
+      eventName: event,
+      data: item?.id,
+    });
   }
 }

@@ -1,18 +1,21 @@
-import { Component, inject } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EmployeeService } from '../../../services/employee.service';
 import { IEmployee } from '../../../models/Employee.interface';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-form-employee',
   templateUrl: './form-employee.component.html',
   styleUrl: './form-employee.component.scss',
 })
-export class FormEmployeeComponent {
+export class FormEmployeeComponent implements OnInit, AfterViewInit {
   employeeServices = inject(EmployeeService);
   router = inject(Router);
+  activatedRoute = inject(ActivatedRoute);
 
   errorMessages = {
     required: 'This field is required',
@@ -33,7 +36,56 @@ export class FormEmployeeComponent {
     group: new FormControl('', Validators.compose([Validators.required])),
     description: new FormControl('', Validators.compose([Validators.required])),
   });
-  constructor(private spinner: NgxSpinnerService) {}
+  action: string = 'add';
+
+  constructor(private spinner: NgxSpinnerService) {
+    this.activatedRoute.queryParamMap.pipe(takeUntilDestroyed()).subscribe((params: Params) => {
+      console.log(params)
+      console.log('getCurrentNavigation ', this.router.getCurrentNavigation());
+      const currentNav = this.router?.getCurrentNavigation();
+      if (currentNav && currentNav.extras?.state) {
+        this.action = currentNav?.extras?.state['action'];
+      }
+    });
+  }
+
+
+  ngOnInit() {
+    const id = this.activatedRoute.snapshot.paramMap.get('id') as number | string;
+    console.log(id);
+    if(this.action === 'edit'){
+      this.getEmployeeById(id);
+    }
+  }
+
+    
+  ngAfterViewInit(): void {
+    this.birthDate?.valueChanges.subscribe((value) => {
+        console.log(value);
+    })
+  }
+  
+
+  getEmployeeById(id: number | string) {
+    this.spinner.show();
+    this.employeeServices
+      .getEmployeesById(id)
+      .pipe()
+      .subscribe((res) => {
+        this.spinner.hide();
+        if (res) {
+          this.firstName?.patchValue(res && res?.firstName ? res?.firstName : '');
+          this.lastName?.patchValue(res && res?.lastName ? res?.lastName : '');
+          this.username?.patchValue(res && res?.username ? res?.username : '');
+          this.email?.patchValue(res && res?.email ? res?.email : '');
+          this.birthDate?.patchValue(res && res?.birthDate ? res?.birthDate.toString() : '');
+          this.basicSalary?.patchValue(res && res?.basicSalary ? parseInt(res?.basicSalary) : 0);
+          this.status?.patchValue(res && res?.status ? res?.status.toString() : '');
+          this.group?.patchValue(res && res?.group ? res?.group : '');
+          this.description?.patchValue(res && res?.description ? res?.description : '');
+        }
+      });
+  }
 
   get firstName() {
     return this.formGroup.get('firstName');
@@ -77,7 +129,7 @@ export class FormEmployeeComponent {
     }
     this.spinner.show();
     const data = this.formGroup.value as IEmployee;
-    this.employeeServices.addEmployee(data).subscribe(
+    this.employeeServices.addEmployee(data).pipe(takeUntilDestroyed()).subscribe(
       (res) => {
         this.spinner.hide();
         if (res) {

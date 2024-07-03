@@ -1,13 +1,13 @@
 <div class="relative bg-darkblue md:pt-20 pb-2 pt-9">
-  <!-- <div class="px-4 md:px-10 mx-auto w-full">
-  </div> -->
+  <div class="px-4 md:px-10 mx-auto w-full">
+  </div>
 </div>
 <div>
   <app-table
     [tableHeader]="tableHeader"
     [tableData]="items"
     (changeSort)="onSort($event)"
-    (clickAddEvent)="addEmployee()"
+    (clickAddEvent)="addEmployee($event)"
   ></app-table>
   <app-pagination
     [totalItems]="totalItems"

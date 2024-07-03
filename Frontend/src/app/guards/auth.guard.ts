@@ -6,7 +6,7 @@ import { inject } from '@angular/core';
 export function authenticationGuard(): CanActivateFn {
   return () => {
     const authService: AuthService = inject(AuthService);
-
+    console.log('running')
     if (authService.hasAccess()) {
       return true;
     }

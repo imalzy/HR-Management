@@ -15,7 +15,6 @@ const routes: Routes = [
   {
     path: 'list',
     component: ListEmployeeComponent,
-
     data: {
       title: 'Pegawai',
       animation: 'isRight',
@@ -24,7 +23,14 @@ const routes: Routes = [
   {
     path: 'form',
     component: FormEmployeeComponent,
-
+    data: {
+      title: 'Pegawai',
+      animation: 'isRight',
+    },
+  },
+  {
+    path: 'form/:id',
+    component: FormEmployeeComponent,
     data: {
       title: 'Pegawai',
       animation: 'isRight',

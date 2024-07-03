@@ -4,7 +4,7 @@ import { EmployeeService } from '../../../services/employee.service';
 import { IColumnTable, IEmployee } from '../../../models/Employee.interface';
 import { GlobalStoreService } from '../../../services/global-store.service';
 import { distinctUntilChanged } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-employee',
@@ -92,7 +92,30 @@ export class ListEmployeeComponent implements OnInit, AfterViewInit {
     this.refresh();
   }
 
-  addEmployee() {
-    this.router.navigateByUrl('/employee/form');
+  addEmployee(emitter: { eventName: string; data?: any }) {
+    const navigation_extras: NavigationExtras = {
+      state: {
+        action: emitter.eventName,
+      },
+    };
+
+    switch (emitter.eventName) {
+      case 'add':
+        this.router.navigateByUrl('/employee/form');
+        break;
+
+      case 'edit':
+        this.router.navigateByUrl(
+          '/employee/form/' + emitter.data,
+          navigation_extras,
+        );
+        break;
+
+      case 'delete':
+        this.employeeService
+          .deleteEmployee(emitter.data)
+          .subscribe(() => this.refresh());
+        break;
+    }
   }
 }

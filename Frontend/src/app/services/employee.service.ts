@@ -39,7 +39,30 @@ export class EmployeeService {
     );
   }
 
-  addEmployee(employee: IEmployee): Observable<any> {
-    return this.httpClient.post<any>(this.baseUrl + '/employees', employee);
+  getEmployeesById(
+    id: number | string,
+  ): Observable<IEmployee> {
+    const httpHeader = new HttpHeaders();
+    const headers = httpHeader
+      .set('Content-Type', 'application/json')
+      .set('Accept', 'application/json');
+
+    return this.httpClient.get<IEmployee>(
+      `${this.baseUrl}/employees/${id}`,
+      {
+        headers,
+      },
+    );
+  }
+
+  addEmployee(employee: IEmployee): Observable<IEmployee> {
+    return this.httpClient.post<IEmployee>(
+      this.baseUrl + '/employees',
+      employee,
+    );
+  }
+
+  deleteEmployee(id: any) {
+    return this.httpClient.delete<any>(`${this.baseUrl}/employees/${id}`);
   }
 }

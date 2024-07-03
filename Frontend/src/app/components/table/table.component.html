@@ -14,7 +14,7 @@
             class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
             type="button"
             style="transition: all 0.15s ease"
-            (click)="clickAddEvent.emit()"
+            (click)="onClickEvent(null, 'add')"
           >
             Tambah
           </button>
@@ -101,7 +101,7 @@
     <button
       class="cursor-pointer text-black opacity-50 px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
       type="button"
-      (click)="edit(item)"
+      (click)="onClickEvent(item, 'edit')"
     >
       <fa-icon [icon]="faEdit" class="text-yellow"></fa-icon>
     </button>
@@ -109,7 +109,7 @@
     <button
       class="cursor-pointer text-black opacity-50 px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
       type="button"
-      (click)="preview(item)"
+      (click)="onClickEvent(item, 'delete')"
     >
       <fa-icon [icon]="faTrash" class="text-red-600"></fa-icon>
     </button>

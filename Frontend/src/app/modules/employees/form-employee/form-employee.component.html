@@ -1,211 +1,213 @@
-<div class="relative bg-darkblue md:pt-32 pb-32 pt-12">
+<!-- <div class="relative bg-darkblue md:pt-32 pb-32 pt-12">
   <div class="px-4 md:px-10 mx-auto w-full">
-    <div>
-      <!-- Card stats -->
-
-      <div class="flex flex-wrap">
-        <div class="w-full px-4">
-          <div
-            class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg"
-          >
-            <div class="flex-auto p-4">
-              <h1 class="mb-4 text-xl font-semibold">Buat pegawai</h1>
-              <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 mx-auto">
-                  <div class="mb-5">
-                    <label
-                      for="firstName"
-                      class="block mb-2 text-sm font-medium text-gray-900"
-                      >Firstname</label
-                    >
-                    <input
-                      type="text"
-                      id="firstName"
-                      formControlName="firstName"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Cth. Imal"
-                    />
-                    <app-form-error
-                      [control]="firstName"
-                      [errors]="errorMessages"
-                    ></app-form-error>
-                  </div>
-                  <div class="mb-5">
-                    <label
-                      for="lastName"
-                      class="block mb-2 text-sm font-medium text-gray-900"
-                      >Lastname</label
-                    >
-                    <input
-                      type="text"
-                      id="lastName"
-                      formControlName="lastName"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Cth. Zaya"
-                    />
-                    <app-form-error
-                      [control]="lastName"
-                      [errors]="errorMessages"
-                    ></app-form-error>
-                  </div>
-                  <div class="mb-5">
-                    <label
-                      for="username"
-                      class="block mb-2 text-sm font-medium text-gray-900"
-                      >Username</label
-                    >
-                    <input
-                      type="text"
-                      id="username"
-                      formControlName="username"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Cth. imalzy"
-                    />
-                    <app-form-error
-                      [control]="username"
-                      [errors]="errorMessages"
-                    ></app-form-error>
-                  </div>
-                  <div class="mb-5">
-                    <label
-                      for="email"
-                      class="block mb-2 text-sm font-medium text-gray-900"
-                      >Email</label
-                    >
-                    <input
-                      type="email"
-                      id="email"
-                      formControlName="email"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Cth. imalzy@mail.com"
-                    />
-                    <app-form-error
-                      [control]="email"
-                      [errors]="errorMessages"
-                    ></app-form-error>
-                  </div>
-                  <div class="mb-5">
-                    <label
-                      for="datepicker"
-                      class="block mb-2 text-sm font-medium text-gray-900"
-                      >Date Of Birth</label
-                    >
-                    <input
-                      type="date"
-                      id="birthDate"
-                      formControlName="birthDate"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Cth. 01/01/1995"
-                    />
-                    <app-form-error
-                      [control]="birthDate"
-                      [errors]="errorMessages"
-                    ></app-form-error>
-                  </div>
-                  <div class="mb-5">
-                    <label
-                      for="basicSalary"
-                      class="block mb-2 text-sm font-medium text-gray-900"
-                      >Basic Salary</label
-                    >
-                    <input
-                      type="text"
-                      appNumberOnly
-                      id="basicSalary"
-                      formControlName="basicSalary"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Cth. Zaya"
-                    />
-                    <app-form-error
-                      [control]="basicSalary"
-                      [errors]="errorMessages"
-                    ></app-form-error>
-                  </div>
-                  <div class="mb-5">
-                    <label
-                      for="status"
-                      class="block mb-2 text-sm font-medium text-gray-900"
-                      >Status</label
-                    >
-                    <select
-                      id="status"
-                      formControlName="status"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    >
-                      <option selected value="" disabled>Status</option>
-                      <option value="permanen">Permanen</option>
-                      <option value="kontrak">Kontrak</option>
-                    </select>
-                    <app-form-error
-                      [control]="status"
-                      [errors]="errorMessages"
-                    ></app-form-error>
-                  </div>
-                  <div class="mb-5">
-                    <label
-                      for="group"
-                      class="block mb-2 text-sm font-medium text-gray-900"
-                      >Group</label
-                    >
-                    <select
-                      id="group"
-                      formControlName="group"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    >
-                      <option selected value="" disabled>Group</option>
-                      <option value="Music">Music</option>
-                      <option value="Toys">Toys</option>
-                      <option value="Garden">Garden</option>
-                      <option value="Outdoors">Outdoors</option>
-                      <option value="Sports">Sports</option>
-                      <option value="Electronics">Electronics</option>
-                      <option value="Kids">Kids</option>
-                      <option value="Tools">Tools</option>
-                      <option value="Games">Games</option>
-                      <option value="Movies">Movies</option>
-                    </select>
-                    <app-form-error
-                      [control]="group"
-                      [errors]="errorMessages"
-                    ></app-form-error>
-                  </div>
-                  <div class="mb-5">
-                    <label
-                      for="description"
-                      class="block mb-2 text-sm font-medium text-gray-900"
-                      >Description</label
-                    >
-                    <input
-                      type="text"
-                      id="description"
-                      formControlName="description"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Cth. Saya adalah seorang software engineer"
-                    />
-                    <app-form-error
-                      [control]="description"
-                      [errors]="errorMessages"
-                    ></app-form-error>
-                  </div>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-8 gap-4">
-                  <button
-                    type="submit"
-                    class="border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline"
-                  >
-                    Save
-                  </button>
-                  <button
-                    type="button"
-                    class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </form>
+    <div>    </div>
+  </div>
+</div> -->
+<div class="relative bg-darkblue md:pt-20 pb-2 pt-9">
+  <div class="px-4 md:px-10 mx-auto w-full">
+  </div>
+</div>
+<div class="flex flex-wrap mt-10">
+  <div class="w-full px-4">
+    <div
+      class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg"
+    >
+      <div class="flex-auto p-4">
+        <h1 class="mb-4 text-xl font-semibold">Buat pegawai</h1>
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 mx-auto">
+            <div class="mb-5">
+              <label
+                for="firstName"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Firstname</label
+              >
+              <input
+                type="text"
+                id="firstName"
+                formControlName="firstName"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Cth. Imal"
+              />
+              <app-form-error
+                [control]="firstName"
+                [errors]="errorMessages"
+              ></app-form-error>
+            </div>
+            <div class="mb-5">
+              <label
+                for="lastName"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Lastname</label
+              >
+              <input
+                type="text"
+                id="lastName"
+                formControlName="lastName"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Cth. Zaya"
+              />
+              <app-form-error
+                [control]="lastName"
+                [errors]="errorMessages"
+              ></app-form-error>
+            </div>
+            <div class="mb-5">
+              <label
+                for="username"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Username</label
+              >
+              <input
+                type="text"
+                id="username"
+                formControlName="username"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Cth. imalzy"
+              />
+              <app-form-error
+                [control]="username"
+                [errors]="errorMessages"
+              ></app-form-error>
+            </div>
+            <div class="mb-5">
+              <label
+                for="email"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Cth. imalzy@mail.com"
+              />
+              <app-form-error
+                [control]="email"
+                [errors]="errorMessages"
+              ></app-form-error>
+            </div>
+            <div class="mb-5">
+              <label
+                for="datepicker"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Date Of Birth</label
+              >
+              <input
+                type="date"
+                id="birthDate"
+                formControlName="birthDate"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Cth. 01/01/1995"
+              />
+              <app-form-error
+                [control]="birthDate"
+                [errors]="errorMessages"
+              ></app-form-error>
+            </div>
+            <div class="mb-5">
+              <label
+                for="basicSalary"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Basic Salary</label
+              >
+              <input
+                type="text"
+                appNumberOnly
+                id="basicSalary"
+                formControlName="basicSalary"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Cth. Zaya"
+              />
+              <app-form-error
+                [control]="basicSalary"
+                [errors]="errorMessages"
+              ></app-form-error>
+            </div>
+            <div class="mb-5">
+              <label
+                for="status"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Status</label
+              >
+              <select
+                id="status"
+                formControlName="status"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <option selected value="" disabled>Status</option>
+                <option value="permanen">Permanen</option>
+                <option value="Kontrak">Kontrak</option>
+              </select>
+              <app-form-error
+                [control]="status"
+                [errors]="errorMessages"
+              ></app-form-error>
+            </div>
+            <div class="mb-5">
+              <label
+                for="group"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Group</label
+              >
+              <select
+                id="group"
+                formControlName="group"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <option selected value="" disabled>Group</option>
+                <option value="Music">Music</option>
+                <option value="Toys">Toys</option>
+                <option value="Garden">Garden</option>
+                <option value="Outdoors">Outdoors</option>
+                <option value="Sports">Sports</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Kids">Kids</option>
+                <option value="Tools">Tools</option>
+                <option value="Games">Games</option>
+                <option value="Movies">Movies</option>
+              </select>
+              <app-form-error
+                [control]="group"
+                [errors]="errorMessages"
+              ></app-form-error>
+            </div>
+            <div class="mb-5">
+              <label
+                for="description"
+                class="block mb-2 text-sm font-medium text-gray-900"
+                >Description</label
+              >
+              <input
+                type="text"
+                id="description"
+                formControlName="description"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Cth. Saya adalah seorang software engineer"
+              />
+              <app-form-error
+                [control]="description"
+                [errors]="errorMessages"
+              ></app-form-error>
             </div>
           </div>
-        </div>
+          <div class="grid grid-cols-1 lg:grid-cols-8 gap-4">
+            <button
+              type="submit"
+              class="border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline"
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              routerLink="/employee/list"
+              class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
