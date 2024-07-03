@@ -1,6 +1,5 @@
 <div class="relative bg-darkblue md:pt-20 pb-2 pt-9">
-  <div class="px-4 md:px-10 mx-auto w-full">
-  </div>
+  <div class="px-4 md:px-10 mx-auto w-full"></div>
 </div>
 <div>
   <app-table
@@ -18,3 +17,43 @@
     (perPageItemChange)="changePerPageItem($event)"
   ></app-pagination>
 </div>
+<app-modal
+  [showModal]="showModal"
+  [contentTemplate]="customContent"
+  (close)="closeModal()"
+></app-modal>
+
+<ng-template #customContent>
+  <div class="flex justify-between">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+      {{ employee.id }} | {{ employee.firstName }} {{ employee.lastName }} - Group: {{
+        employee.group
+      }}
+    </h3>
+    <div>
+      @if (employee && employee.status && employee.status.toString().toLowerCase() === "kontrak") {
+        <span
+          class="bg-red-100 text-red-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300 text-xs"
+        >
+          {{ employee.status }}</span
+        >
+      }
+      @if (employee && employee.status && employee.status.toString().toLowerCase() === "permanen") {
+        <span
+          class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 text-xs"
+        >
+          {{ employee.status }}</span
+        >
+      }
+    </div>
+  </div>
+  <p class="text-xs text-gray-400 text-left">{{ employee.email }} - {{ employee.birthDate | date: "dd MMMM yyyy" }}</p>
+  <div class="mt-2">
+    <p class="text-sm text-gray-500">
+      Bio: {{ employee.description }}
+    </p>
+    <p class="text-sm text-gray-500">
+      Basic Salary: {{ employee.basicSalary | currency: "Rp" : "symbol" : "3.0" }}
+    </p>
+  </div>
+</ng-template>

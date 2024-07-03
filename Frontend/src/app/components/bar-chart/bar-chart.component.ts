@@ -10,7 +10,7 @@ export class BarChartComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {}
   ngAfterViewInit() {
-    let config = {
+    const config = {
       type: 'bar',
       data: {
         labels: [

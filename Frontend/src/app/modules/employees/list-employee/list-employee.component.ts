@@ -5,6 +5,7 @@ import { IColumnTable, IEmployee } from '../../../models/Employee.interface';
 import { GlobalStoreService } from '../../../services/global-store.service';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { NavigationExtras, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-employee',
@@ -15,10 +16,6 @@ export class ListEmployeeComponent implements OnInit, AfterViewInit {
   private employeeService = inject(EmployeeService);
   private globalStore = inject(GlobalStoreService);
   private router = inject(Router);
-  limit = 5;
-  page = 1;
-  totalItems: number = 0;
-
   tableHeader: IColumnTable[] = [
     {
       columnName: 'Firstname',
@@ -47,10 +44,16 @@ export class ListEmployeeComponent implements OnInit, AfterViewInit {
     },
   ];
   items: IEmployee[] = [];
+
   sort: string = 'firstName';
   order: 'asc' | 'desc' = 'asc';
   search: string = '';
   totalPage: number = 0;
+  limit = 5;
+  page = 1;
+  totalItems: number = 0;
+  showModal = false;
+  employee: IEmployee = {} as IEmployee;
 
   ngOnInit(): void {
     this.refresh();
@@ -106,16 +109,46 @@ export class ListEmployeeComponent implements OnInit, AfterViewInit {
 
       case 'edit':
         this.router.navigateByUrl(
-          '/employee/form/' + emitter.data,
+          '/employee/form/' + emitter.data?.id,
           navigation_extras,
         );
         break;
-
+      case 'preview':
+        this.employee = emitter.data;
+        this.openModal();
+        break;
       case 'delete':
-        this.employeeService
-          .deleteEmployee(emitter.data)
-          .subscribe(() => this.refresh());
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.employeeService.deleteEmployee(emitter.data?.id).subscribe(() => {
+              Swal.fire({
+                title: 'Deleted!',
+                text: 'Your file has been deleted.',
+                icon: 'success',
+              }).then(() => {
+                this.refresh();
+              });
+            });
+          }
+        });
+
         break;
     }
+  }
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 }

@@ -51,7 +51,7 @@ export class TableComponent {
   onClickEvent(item: IEmployee | null, event: string) {
     this.clickAddEvent.emit({
       eventName: event,
-      data: item?.id,
+      data: item,
     });
   }
 }

@@ -11,6 +11,7 @@ import { NumberOnlyDirective } from '../../directives/number-only.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormErrorModule } from '../../components/form-error/form-error.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ModalModule } from '../../components/modal/modal.module';
 const routes: Routes = [
   {
     path: 'list',
@@ -51,6 +52,7 @@ const routes: Routes = [
     PaginationModule,
     FormErrorModule,
     NgxSpinnerModule,
+    ModalModule,
     RouterModule.forChild(routes),
   ],
   providers: [EmployeeService],

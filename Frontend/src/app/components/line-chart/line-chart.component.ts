@@ -5,12 +5,12 @@ import Chart from 'chart.js';
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',
 })
-export class LineChartComponent implements OnInit {
+export class LineChartComponent implements OnInit, AfterViewInit {
   constructor() {}
 
   ngOnInit() {}
   ngAfterViewInit() {
-    var config = {
+    const config = {
       type: 'line',
       data: {
         labels: [

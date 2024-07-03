@@ -62,6 +62,23 @@ export class EmployeeService {
     );
   }
 
+  updateEmployee(
+    id: number | string,
+    data: IEmployee, 
+  ): Observable<IEmployee> {
+    const httpHeader = new HttpHeaders();
+    const headers = httpHeader
+      .set('Content-Type', 'application/json')
+      .set('Accept', 'application/json');
+
+    return this.httpClient.put<IEmployee>(
+      `${this.baseUrl}/employees/${id}`, data,
+      {
+        headers,
+      },
+    );
+  }
+
   deleteEmployee(id: any) {
     return this.httpClient.delete<any>(`${this.baseUrl}/employees/${id}`);
   }

@@ -53,7 +53,7 @@
         </thead>
         <tbody>
           @for (item of tableData; track $index) {
-            <tr>
+            <tr class="hover:bg-gray-100 cursor-pointer" (click)="onClickEvent(item, 'preview')">
               @for (column of tableHeader; track $index) {
                 <td
                   class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
